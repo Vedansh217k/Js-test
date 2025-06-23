@@ -1,0 +1,39 @@
+!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASN METHODS</title>
+</head>
+<body>
+
+    <h1> </h1>
+    <button id="stop">Stop</button> 
+    <button id="start">Start</button>
+
+    </body>
+    <script>
+        let intervalId;
+
+        function sayDate(str) {
+            console.log(str, new Date().toLocaleTimeString());
+        }
+
+        // Start button event
+        document.querySelector('#start').addEventListener('click', function () {
+            if (!intervalId) {
+                intervalId = setInterval(() => sayDate('hi'), 1000);
+            }
+        });
+
+        // Stop button event
+        document.querySelector('#stop').addEventListener('click', function () {
+            clearInterval(intervalId);
+            intervalId = null;
+            console.log("STOPPED");
+        });
+
+        // Optional: One-time delayed execution
+        setTimeout(() => sayDate('This was delayed'), 2000);
+    </script>
+</html>
